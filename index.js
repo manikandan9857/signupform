@@ -5,7 +5,7 @@ var mongoose = require("mongoose")
 const app = express()
 
 app.use(bodyParser.json())
-app.use(express.static('./'))
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
     extended:true
 }))
