@@ -1,42 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-	
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>SignUp Form</title>
-<link rel="stylesheet" type="text/css" href="style.css" >
+	<script>
+		function validateEmail(inputText) {
+			var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			if(inputText){
+				if (inputText.value.match(mailformat)) {
+				alert("Valid email address!");
+				document.form1.text1.focus();
+				return true;
+			}
+			else {
+				alert("You have entered an invalid email address!");
+				//document.form1.text1.focus();
+				return false;
+			}
+			}else{
+				alert('Email cannot be empty');
+			}
+			
+		}
+		function submitClick(){
+			alert('submit clicked...')
+		}
+	</script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>SignUp Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-			
+
 			</div>
-			
+
 			<div class="col-md-6 main">
 				<form action="/sign_up" method="post">
-				<font color="#000099">
-					<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SignUp Form </h2>
+					<font color="#000099">
+						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SignUp
+							Form </h2>
 					</font>
-					<input type="text" class="box" id="name" name="name" placeholder="Name" required/>
+					<input type="text" class="box"  id="name" name="name" placeholder="Name" required />
 					<br />
-					<input type="text" class="box" id="email" name="email" placeholder="Email" required />
+					<input type="text" class="box" onBlur="validateEmail(this)" id="email" name="email"
+						placeholder="Email" required />
 					<br />
-					<input type="text" class="box" id="phno" name="phno" placeholder="Mobile" required />
+					<input type="number" class="box" id="phno" name="phno" placeholder="Mobile" required />
 					<br />
 					<input type="password" class="box" id="password" name="password" placeholder="Password" required />
 					<br />
-					<input type="submit" value="SignUp" id="signup"/>
-			    </form>
+					<input type="submit" value="SignUp" onClick="submitClick()" disable="true" id="signup" />
+				</form>
 			</div>
 			<div class="col-md-3">
 			</div>
 		</div>
 	</div>
-					
-				
-					
+
+
+
 </body>
+
 </html>
